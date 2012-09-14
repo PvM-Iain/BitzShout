@@ -1,0 +1,11 @@
+name: BitzShout
+version: 1.1.1.0001b
+main: com.bitzcraftonline.shout.BitzShout
+description: >
+             Simple shout plugin for Bitzcraft.
+commands:
+  bitzshout:
+    description: The base command for BitzShout.
+  shout:
+    description: Shout a message.  
+  
