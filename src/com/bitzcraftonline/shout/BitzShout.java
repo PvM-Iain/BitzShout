@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Server;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -30,6 +31,7 @@ public class BitzShout extends JavaPlugin {
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
 		Player player = (Player) sender;
 		if (commandLabel.equalsIgnoreCase("shout")) {
+		  if(sender instanceof Player){
 		    if (args.length == 0 ){
 				sender.sendMessage(ChatColor.GRAY + "Not enough arguments! Syntax: /shout <message>");
 			}if(args.length == 1){
@@ -69,8 +71,12 @@ public class BitzShout extends JavaPlugin {
 				 sender.sendMessage(ChatColor.GOLD + "/bitzshout" + ChatColor.DARK_AQUA + " - " + ChatColor.BLUE + "Base command for BitzShout");
 				 sender.sendMessage(ChatColor.GOLD + "/shout " + ChatColor.GRAY + "<message>" + ChatColor.DARK_AQUA + " - " + ChatColor.BLUE + " Shouts a message to the server.");
 				 sender.sendMessage(ChatColor.BLUE + "-====================================-");
+			}else{
+				if(sender instanceof Server){
+					sender.sendMessage("Only in-game players can use this command!");
+				}
 			}
-	        
+		  }
 
 		}
 		return false;
